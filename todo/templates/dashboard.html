@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{%block title%}
+dashboard
+{%endblock%}
+{%block content %}
+<div class="container mt-5">
+  <div class="d-flex flex-row my-5 ">
+    <h3>ajouter des espace pour les todo</h3>
+    <a class="mx-3 btn btn-info btn-lg d-flex justify-content-center align-content-between pb-0 " href="{{url_for('addSpace_page',)}}" >
+      <i class="material-icons mr-1">add</i>
+      <span>
+        Ajouter un Espace
+      </span></a>
+      
+  </div>
+  
+    <a class=" btn btn-warning  btn-block btn-lg d-flex justify-content-center align-content-between pb-0 " href="{{url_for('addTodo_page',action='add')}}" >
+        <i class="material-icons mr-1">add</i>
+        <span>
+          Ajouter un nouveau todo
+        </span></a>
+
+{%with todos=todos%}
+{% include 'listTodo.html' %}
+{% endwith%}
+
+{% endblock %}

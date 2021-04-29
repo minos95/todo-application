@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%block title%}
+enregistrer vous
+{%endblock%}
+{%block content%}
+
+<div class="container mt-5 p-5" style="background-color: #f7db54;">
+    <div class="d-flex flex-row my-4 justify-content-center">
+            
+        <!-- <img style="max-width: 50px;" src="../static/images/Molecular DNA.gif"/> -->
+             <h1 class="h3 mb-3 font-weight-normal mx-2 align-self-end">Enregistrer Vous </h1>
+             
+        
+     </div>
+
+<form method="POST" class="form-register" >
+    {{ form.hidden_tag() }}
+    {{form.username.label()}}
+    {{form.username(class="form-control", placeholder="entrer votre nom")}}
+    {{form.email.label()}}
+    {{form.email(class="form-control", placeholder="exemple@gmail.com")}}
+   
+    {{form.password1.label()}}
+    {{form.password1(class="form-control", )}}
+
+    {{form.password2.label()}}
+    {{form.password2(class="form-control", )}}
+</br>
+    {{form.submit(class="btn btn-lg btn-block btn-primary ")}}
+
+</form>
+</div>
+{% endblock %}

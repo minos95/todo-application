@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{%block title%}
+enregistrer vous
+{%endblock%}
+{%block content%}
+
+<div class="container mt-5 p-5" style="background-color: #f7db54;">
+    <div class="d-flex flex-row my-4 justify-content-center">
+            
+       <!-- <img style="max-width: 50px;" src="../static/images/Molecular DNA.gif"/> -->
+            <h1 class="h3 mb-3 font-weight-normal mx-2 align-self-end">Ajouter un nouveau todo </h1>
+            
+       
+    </div>
+{%if request.args.get(action)=='edit' %}
+<form method="POST" action="{{url_for('addTodo_page',action='edit',todo=todo.id)}}" class="form-register" >
+{%else%}
+<form method="POST" action="{{url_for('addTodo_page',action='add')}}" class="form-register" >
+{%endif%}
+
+    {{ form.hidden_tag() }}
+    {%if not todo is defined %}
+
+    {{form.name.label()}}
+    {{form.name(class="form-control", placeholder="le contenue du todo",)}}
+    
+    {{form.category.label()}}
+    {{form.category(class="form-control",placeholder="selectioner la category du todo")}}
+    {%else%}
+    {{form.name.label()}}
+    {{form.name(class="form-control", placeholder="le contenue du todo",value=todo.name)}}
+    
+    {{form.category.label()}}
+    {{form.category(class="form-control",placeholder="selectioner la category du todo",value=todo.category)}}
+
+    {%endif%}
+
+</br>
+    {{form.submit(class="btn btn-lg btn-block btn-primary ")}}
+
+</form>
+</div>
+{% endblock %}

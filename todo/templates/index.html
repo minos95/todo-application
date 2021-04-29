@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{%block title%}
+dashboard
+{%endblock%}
+{%block content %}
+<div class=" cont-background">
+    <div class="row mt-5">
+      <div class="container form-login col p-5 w-75" >
+      
+        
+          
+        <form method="POST"  class="form-register" >
+            {{ form.hidden_tag() }}
+            <h1 class="h3 mb-3 font-weight-normal"> Se connecter</h1>
+            <br>
+            
+            {{form.username.label()}}
+            {{form.username(class="form-control",placeholder="Username")}}
+            {{form.password.label()}}
+            {{form.password(class="form-control",placeholder="Mot de passe")}}
+          
+            
+            <br>
+            
+            {{form.submit(class="btn  btn-block btn-primary")}}
+        </form>
+        <a href="{{url_for('signIn_page')}}"> vous n'ete pas encore inscrit ?</a>
+      </div>
+      <div class="container anime col-8">
+        <img src="../static/images/logo1.png" style="max-width: 200px;max-height: 200px;"/>
+        <h1 class="ml2">TODO APP</h1>
+      </div>
+      
+  </div>
+</div>
+
+
+{%endblock%}

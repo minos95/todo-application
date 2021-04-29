@@ -1,0 +1,85 @@
+  
+ {% for todo in todos%}
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="d-flex justify-content-between">
+            <p>{{todo.category}}</p>
+            {% if not  world is defined %}
+            <div class="d-flex flex-row">
+              <a class=" btn  btn-primary {%if todo.share==True %}disabled{%endif%} btn-sm d-flex justify-content-center align-content-between pt-2 mx-2 " 
+              data-toggle="modal" data-target="#delete_patient"  onclick="deleteButtonClicked({{ todo.id}},'share')">
+            <i class="material-icons mr-1">share</i>
+              <span>
+                Partager
+              </span></a>
+            <a class=" btn btn-info btn-sm d-flex justify-content-center align-content-between pt-2 mx-2 " 
+            href="{{url_for('addTodo_page',action='edit',todo=todo.id)}}" >
+            <i class="material-icons mr-1">edit</i>
+              <span>
+                Editer
+              </span></a>
+            <a class=" btn btn-danger btn-sm d-flex justify-content-center align-content-between pb-0 " 
+            data-toggle="modal" data-target="#delete_patient"  onclick="deleteButtonClicked({{ todo.id}},'delete')" >
+              <i class="material-icons mr-1">delete</i>
+              <span>
+                Supprimer
+              </span></a>
+            </div>
+            {%endif%}
+        </div>
+        
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <p>{{todo.name}}</p> 
+        <footer class="blockquote-footer">date d'ajout <cite title="Source Title">{{todo.date_added.year }}-{{todo.date_added.month }}-{{todo.date_added.day }} par {{todo.owned_user.name}} </cite></footer>
+      </blockquote>
+    </div>
+  </div>
+  {%else%}
+  <div class="d-flex flex-row my-4 justify-content-center">    
+    <img style="max-width: 100px;" src="../static/images/todo.png"/>
+         <h1 class="h3 mb-3 font-weight-normal my-5 align-self-end">Vous n'avez aucun todo </h1>
+       
+ </div>
+  {% endfor %}
+</div>
+<div class="modal fade" id="delete_patient" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmer</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="alert-modal">
+        
+        
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
+        <form id="deleteForm" method="POST">
+          <input type="hidden" name="_method" value="DELETE">
+          <input type="submit" value="Yes" class="btn btn-danger" >
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function deleteButtonClicked(issMapId,action) {
+    if (action=='delete'){
+      document.getElementById("alert-modal").innerHTML = "Etes vous sure de bien vouloire supprimer  Todo"  ;
+      var element = document.getElementById("deleteForm");
+      element.setAttribute("action",  "dashboard?todo="+issMapId+"&&action=delete" )
+    }else{
+      document.getElementById("alert-modal").innerHTML = "Etes vous sure de bien vouloire partager  Todo"  ;
+      var element = document.getElementById("deleteForm");
+      element.setAttribute("action",  "dashboard?todo="+issMapId+"&&action=share" )
+    }
+  }
+</script>
+
+ 
