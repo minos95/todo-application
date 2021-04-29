@@ -7,4 +7,4 @@ comment executer l'application ?
    sudo apt-get install python3.6  
 2-install flask  
   pip install flask  
-3-entrer dans le dossier TODOAPP et excécuter la commande 'python run.py'  
+3-entrer dans le dossier todoapp et excécuter la commande 'python run.py'  
