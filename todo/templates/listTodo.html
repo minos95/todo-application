@@ -31,7 +31,8 @@
     </div>
     <div class="card-body">
       <blockquote class="blockquote mb-0">
-        <p>{{todo.name}}</p> 
+        <h3>{{todo.name}}</h3> 
+        <p>Le {{todo.date.year}}/{{todo.date.month}}/{{todo.date.day}} </p>
         <footer class="blockquote-footer">date d'ajout <cite title="Source Title">{{todo.date_added.year }}-{{todo.date_added.month }}-{{todo.date_added.day }} par {{todo.owned_user.name}} </cite></footer>
       </blockquote>
     </div>

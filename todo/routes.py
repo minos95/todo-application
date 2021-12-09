@@ -75,6 +75,7 @@ def addTodo_page():
             
             todo_to_create=Todo(name=form.name.data,
                                 category=form.category.data,
+                                date=form.dt.data,
                                 owner=id
                                     
                                     )

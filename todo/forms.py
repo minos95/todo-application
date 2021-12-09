@@ -4,6 +4,16 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,PasswordField,SubmitField,SelectField
 from wtforms.validators import Length ,EqualTo,Email,DataRequired
+from wtforms.fields.html5 import DateField
+from todo.models import Space
+print("+++++")
+space=Space.query.all()
+spaceChoices=[]
+for elm in space:
+    x=(elm.name,elm.name)
+    spaceChoices.append(x)
+    print(space)
+    
 
 class RegisterForm(FlaskForm):
     username=StringField(label="Nom D'utilisateur",validators=[Length(min=2,max=30),DataRequired()])
@@ -14,9 +24,12 @@ class RegisterForm(FlaskForm):
 
 class TodoForm(FlaskForm):
     def get_space(self):
-        space=Space.query.all()
+        space1=Space.query.all()
+        print('++++++++++++++++++++++')
+        print(space1)
     name=StringField(label="Contenu Todo")
-    category = SelectField(u'category', choices=[('Jeux', 'Jeux'), ('Travaille', 'Travaille'), ('Sport', 'Sport'), ('film', 'Regarder un ou anime')])
+    category = SelectField(u'Espace', choices=spaceChoices)
+    dt = DateField('DatePicker', format='%Y-%m-%d')
     submit=SubmitField(label='submit')
 
 class SignInFrom(FlaskForm):

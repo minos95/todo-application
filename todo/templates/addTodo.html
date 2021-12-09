@@ -26,6 +26,9 @@ enregistrer vous
     
     {{form.category.label()}}
     {{form.category(class="form-control",placeholder="selectioner la category du todo")}}
+
+    {{form.dt.label()}}
+    {{form.dt(class="form-control", placeholder="le contenue du todo")}}
     {%else%}
     {{form.name.label()}}
     {{form.name(class="form-control", placeholder="le contenue du todo",value=todo.name)}}
@@ -33,6 +36,8 @@ enregistrer vous
     {{form.category.label()}}
     {{form.category(class="form-control",placeholder="selectioner la category du todo",value=todo.category)}}
 
+    {{form.dt.label()}}
+    {{form.dt(class="form-control", placeholder="le contenue du todo",value=todo.dt)}}
     {%endif%}
 
 </br>

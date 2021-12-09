@@ -13,6 +13,7 @@ class User(db.Model,UserMixin):  #cree une table User avec different attribue ci
     email=db.Column(db.String(length=30),nullable=False,unique=True)
     password=db.Column(db.String(length=100),nullable=False)
     todos=db.relationship('Todo',backref='owned_user',lazy=True)
+  
     @property
     def pwd(self):
         return self.pwd
@@ -25,6 +26,7 @@ class Todo(db.Model):   # cree une table Todo avec different attribue ci-dessus
     id= db.Column(db.Integer(),primary_key=True)
     name=db.Column(db.String(length=30),nullable=False)
     category=db.Column(db.String(length=30),nullable=False,)
+    date=db.Column(db.DateTime ,nullable=False)
     share=db.Column(db.Boolean(),nullable=False,default=False)
     owner=db.Column(db.Integer(),db.ForeignKey('user.id'))
     date_added=db.Column(db.DateTime, default=datetime.datetime.utcnow)
@@ -32,3 +34,4 @@ class Todo(db.Model):   # cree une table Todo avec different attribue ci-dessus
 class Space(db.Model):   # cree une table Todo avec different attribue ci-dessus
     id= db.Column(db.Integer(),primary_key=True)
     name=db.Column(db.String(length=30),nullable=False)
+    
