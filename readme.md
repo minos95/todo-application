@@ -1,10 +1,32 @@
-Application todo realiser avec le framework flask ,ce dernier  utilise le language python pour le backend et jinja et html pour le front end   
+# Todo Application  realiser avec le framework flask 
+![screenshot](./screenshot.png)
+## Build with
+- Flask/jinja
+- Python
+- HTML/css 
+- SQL Alchemy
 
-comment executer l'application ?  
+## Getting Started
+Get a local copy up and follow this steps
 
-1-install python  
-  sudo apt-get update  
-   sudo apt-get install python3.6  
-2-install flask  
-  pip install flask  
-3-entrer dans le dossier todoapp et excécuter la commande 'python run.py'  
+## Prerequisites
+- Python
+- Pip
+- flask
+For more information visit this Link : https://flask.palletsprojects.com/en/2.0.x/installation/
+
+## Local Development
+- Open the terminal and start a server with 'python run.py'
+- Open http://localhost:5000 in your browser
+
+## Usage
+- Sign up as a buyer by providing a name, email, address and password.
+- Start browsing todo 
+- Add Spaces and then add todo 
+
+
+
+## The Author
+- GitHub: @minos95
+- Twitter: @aminos_rahal
+- LinkedIn: rahal sidahmed
